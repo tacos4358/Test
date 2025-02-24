@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      dotnet: 8.0
+    commands:
+      - echo "Setting up macOS build environment..."
+      - xcode-select --switch /Applications/Xcode.app/Contents/Developer
+      - dotnet workload install maui-ios
+      - dotnet restore
+
+  build:
+    commands:
+      - echo "Building .NET MAUI iOS App..."
+      - dotnet build -f net8.0-ios /p:Configuration=Release
+      - dotnet publish -f net8.0-ios -c Release -o output/
+
+artifacts:
+  files:
+    - output/**/*
