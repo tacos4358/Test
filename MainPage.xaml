@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YourMauiProject.MainPage">
+    <VerticalStackLayout Padding="20">
+        <Label Text="Patient Name"/>
+        <Entry x:Name="patientNameEntry" Placeholder="Enter patient name"/>
+
+        <Label Text="Vitals"/>
+        <Picker x:Name="vitalsPicker">
+            <Picker.Items>
+                <x:String>BID</x:String>
+                <x:String>Q4</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Text="Accucheck"/>
+        <Picker x:Name="accucheckPicker">
+            <Picker.Items>
+                <x:String>None</x:String>
+                <x:String>ACHS</x:String>
+                <x:String>Q4</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Text="Incontinent"/>
+        <Switch x:Name="incontinentSwitch"/>
+
+        <Label Text="Needy Factor"/>
+        <Stepper x:Name="needyFactorStepper" Minimum="0" Maximum="3" Increment="1"/>
+
+        <Button Text="Add Patient" Clicked="AddPatient"/>
+        <ListView x:Name="patientListView"/>
+
+        <Button Text="Assign Patients to Techs" Clicked="AssignPatients"/>
+        <ListView x:Name="techListView"/>
+    </VerticalStackLayout>
+</ContentPage>
